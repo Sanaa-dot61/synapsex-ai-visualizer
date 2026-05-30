@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> SynapseX  | AI Search Visualizer</title>
+  <!-- For Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="shortcut icon" href="images/artificial-intelligence-1.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Landing Page -->
+  <section class="landing" id="landing">
+    <nav class="landing-nav">
+      <div class="brand"> SynapseX </div>
+    </nav>
+    <div class="hero">
+      <p class="eyebrow">AI Search Algorithms Project</p>
+      <h1>Build the graph, connect the nodes, and solve it live.</h1>
+      <p class="subtext">
+        Visualize BFS, DFS, Greedy, A*, UCS, IDDFS, DLS, and Bidirectional on a clean interactive graph canvas.
+      </p>
+      <button id="startBtn" class="start-btn">Get Started</button>
+    </div>
+  </section>
+  <!-- App Page -->
+  <section class="app hidden" id="app">
+    <header class="topbar">
+      <div>
+        <div class="brand-2 dark">SynapseX</div>
+        <p class="topbar-text">Search Algorithms Visualizer</p>
+      </div>
+      <div class="topbar-actions">
+        <button id="clearSelectionBtn" class="ghost-btn">Clear Selection</button>
+        <button id="resetBtn" class="ghost-btn danger">Reset Graph</button>
+      </div>
+    </header>
+    <main class="workspace">
+      <aside class="sidebar">
+        <div class="panel">
+          <h3>Add Node</h3>
+          <p class="panel-note">Add nodes with unique names. They appear on the canvas immediately.</p>
+          <input id="nodeName" type="text" placeholder="Node name" />
+          <input id="nodeCost" type="number" placeholder="Heuristic (h)" />
+          <button id="addNodeBtn" class="primary-btn">Add Node</button>
+        </div>
+        <div class="panel info">
+          <h3>How to connect</h3>
+          <p>Click on one node, then click on another node. A cost prompt will appear, and the edge will be drawn automatically.</p>
+        </div>
+        <div class="panel">
+          <h3>Solve Graph</h3>
+          <input id="startNode" type="text" placeholder="Start node" />
+          <input id="goalNode" type="text" placeholder="Goal node" />
+          <select id="algorithm">
+            <option hidden>Choose The Algorithm</option>
+            <option value="bfs">BFS</option>
+            <option value="dfs">DFS</option>
+            <option value="greedy">Greedy</option>
+            <option value="astar">A*</option>
+            <option value="ucs">UCS</option>
+            <option value="iddfs">IDDFS</option>
+            <option value="dls">DLS</option>
+            <option value="bidirectional">Bidirectional</option>
+          </select>
+          <button id="runBtn" class="primary-btn">Run Algorithm</button>
+        </div>
+      </aside>
+      <section class="board">
+        <div class="canvas-card">
+          <canvas id="canvas" width="900" height="460"></canvas>
+        </div>
+        <div class="table-card"  id="edgesCard">
+          <div class="table-head">
+            <h3>Edges Table</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Cost</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card" id="nodesCard">
+        <div class="table-head">
+            <h3>Nodes Table</h3>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Node</th>
+                <th>Cost</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="nodesTableBody"></tbody>
+        </table>
+        </div>
+        <div class="result-card">
+          <h3>Result</h3>
+          <pre id="output">No algorithm run yet.</pre>
+        </div>
+      </section>
+    </main>
+  </section>
+  <script src="js/script.js"></script>
+</body>
+</html>
